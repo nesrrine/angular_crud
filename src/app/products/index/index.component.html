@@ -1,0 +1,63 @@
+<div class="container">
+
+    <h2>Les produits</h2>
+       
+    <div>
+      <app-create></app-create>
+</div> 
+
+          
+    
+        <table class="table table-striped">
+    
+            <thead>
+    
+                  <tr>
+    
+                    <th>Image</th>
+  
+                    <th>Désignation</th>
+    
+                    <th>Marque</th>
+    
+                    <th width="250px">Actions</th>
+    
+                  </tr>
+    
+            </thead>
+    
+            <tbody>
+    
+                  <tr *ngFor="let product of product">
+    
+                    <td><img src="{{product.imageart}}" alt="" width="80" height="80"/></td>
+  
+                    <td>{{ product.designation }}</td>
+    
+                    <td>{{ product.marque }}</td>
+    
+                       
+                    <td>
+                      <app-view [productId]="product._id"></app-view>
+
+    
+                      <app-edit [productId]="product.id"></app-edit>
+
+                      
+                   
+                      <button type="button" (click)=" deleteProduct(product.id)" class="btn btn-default">
+                        <i class="bi bi-trash-fill" style="color:red"></i>
+                      </button>
+    
+  
+    
+                    </td>
+    
+                  </tr>
+    
+            </tbody>
+    
+        </table>
+    
+     </div>
+  
